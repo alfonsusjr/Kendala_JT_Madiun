@@ -1,12 +1,21 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
+
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
   <title>Dashboard Invalid Survey</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
 
   <style>
 
@@ -98,7 +107,12 @@
     }
 
     .header{
-      background:linear-gradient(90deg,#0f172a,#1e293b);
+      background:
+      linear-gradient(
+        90deg,
+        #0f172a,
+        #1e293b
+      );
       color:white;
       padding:25px;
       display:flex;
@@ -128,7 +142,11 @@
 
     .cards{
       display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      grid-template-columns:
+      repeat(
+        auto-fit,
+        minmax(220px,1fr)
+      );
       gap:20px;
       margin-bottom:25px;
     }
@@ -137,7 +155,8 @@
       background:white;
       padding:20px;
       border-radius:18px;
-      box-shadow:0 4px 12px rgba(0,0,0,0.08);
+      box-shadow:
+      0 4px 12px rgba(0,0,0,0.08);
     }
 
     .card h2{
@@ -155,7 +174,8 @@
       border:none;
       border-radius:14px;
       font-size:16px;
-      box-shadow:0 2px 8px rgba(0,0,0,0.08);
+      box-shadow:
+      0 2px 8px rgba(0,0,0,0.08);
       outline:none;
     }
 
@@ -163,13 +183,14 @@
       background:white;
       border-radius:18px;
       overflow:auto;
-      box-shadow:0 4px 12px rgba(0,0,0,0.08);
+      box-shadow:
+      0 4px 12px rgba(0,0,0,0.08);
     }
 
     table{
       width:100%;
       border-collapse:collapse;
-      min-width:1500px;
+      min-width:1400px;
     }
 
     thead{
@@ -227,15 +248,20 @@
 
 <body>
 
-<!-- ================= LOGIN PAGE ================= -->
+<!-- ================= LOGIN ================= -->
 
-<div class="login-page" id="loginPage">
+<div
+  class="login-page"
+  id="loginPage"
+>
 
   <div class="login-box">
 
     <h1>LOGIN</h1>
 
-    <p>Dashboard Invalid Survey</p>
+    <p>
+      Dashboard Invalid Survey
+    </p>
 
     <input
       type="text"
@@ -253,7 +279,10 @@
       Masuk Dashboard
     </button>
 
-    <div class="error" id="errorText"></div>
+    <div
+      class="error"
+      id="errorText"
+    ></div>
 
   </div>
 
@@ -261,16 +290,29 @@
 
 <!-- ================= DASHBOARD ================= -->
 
-<div class="dashboard" id="dashboard">
+<div
+  class="dashboard"
+  id="dashboard"
+>
 
   <div class="header">
 
     <div>
-      <h1>DISTRICT MADIUN INVALID SURVEY</h1>
-      <p id="lastUpdate">Update : -</p>
+
+      <h1>
+        DISTRICT MADIUN INVALID SURVEY
+      </h1>
+
+      <p id="lastUpdate">
+        Update : -
+      </p>
+
     </div>
 
-    <button class="logout-btn" onclick="logout()">
+    <button
+      class="logout-btn"
+      onclick="logout()"
+    >
       Logout
     </button>
 
@@ -293,7 +335,7 @@
       </div>
 
       <div class="card">
-        <p>AKTIDAK LAYAK</p>
+        <p>Reject</p>
         <h2 id="totalReject">0</h2>
       </div>
 
@@ -327,12 +369,12 @@
           <tr>
 
             <th>Status</th>
-            <th>Witel</th>
-            <th>Datel</th>
+            <th>DATEL</th>
+            <th>STO</th>
             <th>Nama Pelanggan</th>
-            <th>Alamat</th>
+            <th>Alamat Instalasi</th>
             <th>Nilai Kontrak</th>
-            <th>RAB</th>
+            <th>RAB HLD</th>
 
           </tr>
 
@@ -347,7 +389,7 @@
   </div>
 
   <div class="footer">
-    Dashboard Auto Update Google Spreadsheet
+    Dashboard Realtime Google Spreadsheet
   </div>
 
 </div>
@@ -364,10 +406,14 @@
   function login(){
 
     let username =
-    document.getElementById("username").value;
+    document.getElementById(
+      "username"
+    ).value;
 
     let password =
-    document.getElementById("password").value;
+    document.getElementById(
+      "password"
+    ).value;
 
     if(
       username === USERNAME &&
@@ -403,154 +449,212 @@
   }
 
   // =============================
-  // GOOGLE SHEET
+  // GOOGLE SHEET CONFIG
   // =============================
 
-  /*
-    LANGKAH CONNECT GOOGLE SHEET:
-
-    1. Share Spreadsheet jadi PUBLIC
-    2. Copy ID Spreadsheet
-    3. Ganti di bawah ini
-  */
-
-  // CONTOH ID SHEET
-  // https://docs.google.com/spreadsheets/d/1ABC123XYZ/edit
-
   const sheetID =
-"1JfBT16cc_WyC2D8WW0pW5YqtAIO6moLbdj_iHE2DBAQ";
+  "1JfBT16cc_WyC2D8WW0pW5YqtAIO6moLbdj_iHE2DBAQ";
 
-  // NAMA TAB SHEET
-
- const sheetName =
-"NDE USULAN B2B";
-
-  // API URL
+  const sheetName =
+  "NDE USULAN B2B";
 
   const apiURL =
-`https://opensheet.elk.sh/${sheetID}/${sheetName}`;
+  `https://opensheet.elk.sh/${sheetID}/${sheetName}`;
+
+  // =============================
+  // LOAD DATA
+  // =============================
 
   async function loadData(){
 
-    const response =
-    await fetch(apiURL);
+    try{
 
-    const data =
-    await response.json();
+      const response =
+      await fetch(apiURL);
 
-    const tbody =
-    document.querySelector(
-      "#dataTable tbody"
-    );
+      const data =
+      await response.json();
 
-    tbody.innerHTML = "";
+      console.log(data);
 
-    let approve = 0;
-    let reject = 0;
-    let waiting = 0;
+      const tbody =
+      document.querySelector(
+        "#dataTable tbody"
+      );
 
-    data.forEach(row => {
+      tbody.innerHTML = "";
 
-      let status =
-      row["Status JT"] || "-";
+      let approve = 0;
+      let reject = 0;
+      let waiting = 0;
 
-      let badgeClass = "waiting";
+      data.forEach(row => {
 
-      if(
-        status.toUpperCase()
-        .includes("APPROVE")
-      ){
+        const status =
+        row["Status JT"] || "-";
 
-        badgeClass = "approve";
-        approve++;
+        let badgeClass =
+        "waiting";
 
-      }
-      else if(
-        status.toUpperCase()
-        .includes("AKTIDAK")
-      ){
+        // =====================
+        // STATUS
+        // =====================
 
-        badgeClass = "reject";
-        reject++;
+        if(
+          status
+          .toUpperCase()
+          .includes("APPROVE")
+        ){
 
-      }
-      else{
+          badgeClass =
+          "approve";
 
-        waiting++;
+          approve++;
 
-      }
+        }
+        else if(
 
-      tbody.innerHTML += `
+          status
+          .toUpperCase()
+          .includes("NOT")
 
-      <tr>
+          ||
 
-        <td>
-          <span class="badge ${badgeClass}">
-            ${status}
-          </span>
-        </td>
+          status
+          .toUpperCase()
+          .includes("DROP")
 
-        <td>${row["WITEL"] || "-"}</td>
+          ||
 
-        <td>${row["DATEL"] || "-"}</td>
+          status
+          .toUpperCase()
+          .includes("AKTIDAK")
 
-        <td>${row["NAMA PELANGGAN"] || "-"}</td>
+        ){
 
-        <td>${row["ALAMAT"] || "-"}</td>
+          badgeClass =
+          "reject";
 
-        <td>${row["Nilai Kontrak"] || "-"}</td>
+          reject++;
 
-        <td>${row["RAB HLD"] || "-"}</td>
+        }
+        else{
 
-      </tr>
+          waiting++;
 
-      `;
+        }
 
-    });
+        // =====================
+        // TABLE
+        // =====================
 
-    document.getElementById(
-      "totalData"
-    ).innerText = data.length;
+        tbody.innerHTML += `
 
-    document.getElementById(
-      "totalApprove"
-    ).innerText = approve;
+        <tr>
 
-    document.getElementById(
-      "totalReject"
-    ).innerText = reject;
+          <td>
+            <span class="badge ${badgeClass}">
+              ${status}
+            </span>
+          </td>
 
-    document.getElementById(
-      "totalWaiting"
-    ).innerText = waiting;
+          <td>
+            ${row["DATEL"] || "-"}
+          </td>
 
-    document.getElementById(
-      "lastUpdate"
-    ).innerText =
-    "Update : " +
-    new Date().toLocaleString("id-ID");
+          <td>
+            ${row["STO"] || "-"}
+          </td>
+
+          <td>
+            ${row["NAMA PELANGGAN"] || "-"}
+          </td>
+
+          <td>
+            ${row["Alamat Instalasi"] || "-"}
+          </td>
+
+          <td>
+            ${row["Nilai Kontrak"] || "-"}
+          </td>
+
+          <td>
+            ${row["RAB HLD"] || "-"}
+          </td>
+
+        </tr>
+
+        `;
+
+      });
+
+      // =====================
+      // TOTAL
+      // =====================
+
+      document.getElementById(
+        "totalData"
+      ).innerText =
+      data.length;
+
+      document.getElementById(
+        "totalApprove"
+      ).innerText =
+      approve;
+
+      document.getElementById(
+        "totalReject"
+      ).innerText =
+      reject;
+
+      document.getElementById(
+        "totalWaiting"
+      ).innerText =
+      waiting;
+
+      document.getElementById(
+        "lastUpdate"
+      ).innerText =
+      "Update : " +
+      new Date()
+      .toLocaleString("id-ID");
+
+    }
+    catch(error){
+
+      console.log(error);
+
+      alert(
+        "Gagal mengambil data Google Spreadsheet"
+      );
+
+    }
 
   }
 
-  // AUTO REFRESH 30 DETIK
+  // =============================
+  // AUTO REFRESH
+  // =============================
 
-  setInterval(loadData,30000);
+  setInterval(
+    loadData,
+    30000
+  );
 
   // =============================
   // SEARCH
   // =============================
 
   document
+  .getElementById(
+    "searchInput"
+  )
   .addEventListener(
     "keyup",
     function(){
 
       let value =
-      document
-      .getElementById(
-        "searchInput"
-      )
-      .value
+      this.value
       .toLowerCase();
 
       let rows =
@@ -561,10 +665,13 @@
       rows.forEach(row => {
 
         row.style.display =
+
         row.innerText
         .toLowerCase()
         .includes(value)
+
         ? ""
+
         : "none";
 
       });
